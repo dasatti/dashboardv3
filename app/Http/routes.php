@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+
+	$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
+    return view('index')->with('breadcrumb',$breadcrumb);
 });
 
 Route::get('/gsm','GsmController@index');
+Route::get('/gsm/add','GsmController@create');
 

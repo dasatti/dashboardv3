@@ -16,7 +16,20 @@ class GsmController extends Controller
      */
     public function index()
     {
-        return view('gsm.index');
+        $phones = array(
+                array('gsm_number'=>'11223344','assigned'=>'0','is_test'=>'0'),
+                array('gsm_number'=>'11223355','assigned'=>'1','is_test'=>'0'),
+                array('gsm_number'=>'11223366','assigned'=>'0','is_test'=>'0'),
+                array('gsm_number'=>'11223377','assigned'=>'1','is_test'=>'0'),
+                array('gsm_number'=>'11223388','assigned'=>'0','is_test'=>'0'),
+                array('gsm_number'=>'11223399','assigned'=>'1','is_test'=>'0'),
+                array('gsm_number'=>'11223300','assigned'=>'0','is_test'=>'0'),
+            );
+        $breadcrumb = array(
+            array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
+            array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>'')
+            );
+        return view('gsm.index')->with('phones',$phones)->with('breadcrumb',$breadcrumb);
     }
 
     /**
@@ -26,7 +39,12 @@ class GsmController extends Controller
      */
     public function create()
     {
-        //
+        $breadcrumb = array(
+            array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
+            array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
+            array('label'=>'Add','url'=>'/gsm/add','class'=>'')
+        );
+        return view('gsm.add')->with('breadcrumb',$breadcrumb);
     }
 
     /**

@@ -1,28 +1,40 @@
 
 			
 									
-			<ul id="main-menu" class="main-menu">
+			<ul id="main-menu" class="main-menu auto-inherit-active-class">
 				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-				<li class="active opened active has-sub">
-					<a href="index.html">
+				<li class="">
+					<a href="{{url('/')}}">
 						<i class="fa fa-dashboard"></i>
 						<span class="title">Dashboard</span>
 					</a>
 				</li>
-				<li>
-					<a href="{{URL::to('/gsm')}}">
+				<li class="has-sub">
+					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
 						<span class="title">Manage Phone Numbers</span>
 					</a>
+					<ul>
+						<li>
+							<a href="{{url('gsm/add')}}">
+								<span class="title">Add GSM Number</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{url('gsm')}}">
+								<span class="title">List Numbers</span>
+							</a>
+						</li>
+					</ul>
 				</li>
-				<li class="has-sub">
+				<li class="">
 					<a href="">
 						<i class="fa fa-user"></i>
 						<span class="title">Manage Clients</span>
 					</a>
 				</li>
-				<li class="has-sub">
+				<li class="">
 					<a href="">
 						<i class="fa fa-briefcase"></i>
 						<span class="title">Manage Campaigns</span>
