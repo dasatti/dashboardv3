@@ -13,10 +13,39 @@
 
 Route::get('/', function () {
 
+	
+
+	//if(Auth::user()){
 	$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
     return view('index')->with('breadcrumb',$breadcrumb);
+	//}else{
+		//return view('auth/login');
+	//}
 });
+
+
 
 Route::get('/gsm','GsmController@index');
 Route::get('/gsm/add','GsmController@create');
 
+
+
+    Route::get('/home', function(){
+		
+		return view('index');
+		});
+
+Route::group(['middleware' => 'web'], function () {
+		
+	Route::get('/', function ()    {
+		if(Auth::user()){
+			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
+		    return view('index')->with('breadcrumb',$breadcrumb);
+		}else{
+			return view('auth/login');	
+		}
+    });
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
