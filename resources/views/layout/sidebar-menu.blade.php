@@ -124,38 +124,38 @@
 					</ul>
 				</li>-->
                 <li class="">
-					<a href="">
+					<a href="{{url('/')}}">
 						<i class="entypo-chart-bar"></i>
 						<span class="title">Leads</span>
 					</a>
 				</li>
 				<li class="">
-					<a href="">
+					<a href="{{url('/')}}">
 						<i class="fa fa-bar-chart-o"></i>
 						<span class="title">Overview</span>
 					</a>
 				</li>
 				<li class="">
-					<a href="">
+					<a href="{{url('calls')}}">
 						<i class="fa fa-tty"></i>
 						<span class="title">Calls</span>
 						<span class="badge badge-secondary">8</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="{{url('emails')}}">
 						<i class="fa fa-envelope-o"></i>
 						<span class="title">Emails</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="{{url('sms')}}">
 						<i class="fa fa-weixin"></i>
 						<span class="title">Manage SMS</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="{{url('/roi')}}">
 						<i class="fa fa-line-chart"></i>
 						<span class="title">ROI</span>
 					</a>

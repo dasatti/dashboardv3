@@ -27,7 +27,7 @@ Route::group(['middleware' => 'web'], function () {
 		}
     });
     Route::auth();
-
+	
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
 	Route::get('/gsm','GsmController@index');
@@ -39,4 +39,5 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/calls','CallsController@index');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
+	Route::get('/roi','RoiController@index');
 });
