@@ -28,6 +28,10 @@ Route::get('/', function () {
 Route::get('/gsm','GsmController@index');
 Route::get('/gsm/add','GsmController@create');
 
+Route::get('/clients','ClientsController@index');
+Route::get('/clients/add','ClientsController@create');
+
+Route::get('/calls','CallsController@index');
 
 
     Route::get('/home', function(){

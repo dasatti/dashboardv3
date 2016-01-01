@@ -28,11 +28,23 @@
 						</li>
 					</ul>
 				</li>
-				<li class="">
-					<a href="">
+				<li class="has-sub">
+					<a href="{{url('clients')}}">
 						<i class="fa fa-user"></i>
 						<span class="title">Manage Clients</span>
 					</a>
+					<ul>
+						<li>
+							<a href="{{url('clients/add')}}">
+								<span class="title">Add Client</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{url('clients')}}">
+								<span class="title">List Clients</span>
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li class="">
 					<a href="">
