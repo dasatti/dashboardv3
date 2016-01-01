@@ -1,0 +1,92 @@
+@extends('layout.app')
+
+
+<!--  Top css/scripts include section  -->
+@section('includes-top')
+	{{ Html::script('public/assets/js/lmdashboard/common.datatables.js') }}
+@stop
+
+
+<!--  This section will contain javascript which will go to head  -->
+@section('scripts-top')
+
+<script type="text/javascript">
+	jQuery( document ).ready( function( $ ) {
+
+		init_datatable("table-phones");
+
+	} );
+</script>
+
+@stop
+
+
+<!-- Html content section -->
+@section('content')
+
+@include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
+
+<h2>Manage GSM Numbers</h2>
+
+
+		
+
+		<table class="table table-bordered datatable" id="table-phones">
+			<thead>
+				<tr class="replace-inputs">
+					<th>GSM Number</th>
+					<th>Assigned</th>
+					<th>Test</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			@foreach($phones as $phone)
+				<tr class="">
+					<td>{{ $phone['gsm_number'] }}</td>
+					<td>{{ $phone['assigned'] }}</td>
+					<td>{{ $phone['is_test'] }}</td>
+					<td class="center">
+						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
+							<i class="entypo-pencil"></i>
+							Edit
+						</a>
+						
+						<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+							<i class="entypo-cancel"></i>
+							Delete
+						</a>
+					</td>
+				</tr>
+
+			@endforeach
+				
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>GSM Number</th>
+					<th>Assigned</th>
+					<th>Test</th>
+					<th>Actions</th>
+				</tr>
+			</tfoot>
+		</table>
+
+
+
+
+@stop
+
+
+<!--  Bottom css/scripts include section  -->
+@section('includes-bottom')
+
+	{{ Html::style('public/assets/js/datatables/datatables.css') }}
+	{{ Html::style('public/assets/js/select2/select2-bootstrap.css') }}
+	{{ Html::style('public/assets/js/select2/select2.css') }}
+
+
+	{{ Html::script('public/assets/js/datatables/datatables.js') }}
+
+@stop

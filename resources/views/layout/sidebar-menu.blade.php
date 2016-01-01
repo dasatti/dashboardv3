@@ -6,13 +6,13 @@
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 				<li class="">
 					<a href="{{url('/')}}">
-						<i class="fa fa-line-chart"></i>
+						<i class="fa fa-dashboard"></i>
 						<span class="title">Dashboard 
                        {{' (Admin) '}}
                         </span>
 					</a>
 				</li>
-				<!--<li class="has-sub">
+				<li class="has-sub">
 					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
 						<span class="title">Manage Phone Numbers</span>
@@ -29,12 +29,6 @@
 							</a>
 						</li>
 					</ul>
-				</li>-->
-				<li class="">
-					<a href="">
-						<i class="fa fa-phone"></i>
-						<span class="title">Manage Phone Numbers</span>
-					</a>
 				</li>
 				<li class="has-sub">
 					<a href="{{url('clients')}}">
