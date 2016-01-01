@@ -68,15 +68,21 @@
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="{{url('calls')}}">
 						<i class="fa fa-phone-square"></i>
 						<span class="title">Manage Calls</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="{{url('emails')}}">
 						<i class="fa fa-envelope"></i>
 						<span class="title">Manage Emails</span>
+					</a>
+				</li>
+				<li>
+					<a href="{{url('sms')}}">
+						<i class="fa fa-comment"></i>
+						<span class="title">Manage SMS</span>
 					</a>
 				</li>
 			</ul>

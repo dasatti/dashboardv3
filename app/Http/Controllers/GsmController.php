@@ -42,7 +42,7 @@ class GsmController extends Controller
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>'')
             );
-        return view('gsm.index')->with('phones',$phones)->with('breadcrumb',$breadcrumb);
+        return view('admin.gsm.index')->with('phones',$phones)->with('breadcrumb',$breadcrumb);
     }
 
     /**
@@ -57,7 +57,7 @@ class GsmController extends Controller
             array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
             array('label'=>'Add','url'=>'/gsm/add','class'=>'')
         );
-        return view('gsm.add')->with('breadcrumb',$breadcrumb);
+        return view('admin.gsm.add')->with('breadcrumb',$breadcrumb);
     }
 
     /**

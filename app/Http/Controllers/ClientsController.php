@@ -32,7 +32,7 @@ class ClientsController extends Controller
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage Clients','url'=>'/clients','class'=>'')
             );
-        return view('clients.index')->with('clients',$clients)->with('breadcrumb',$breadcrumb);
+        return view('admin.clients.index')->with('clients',$clients)->with('breadcrumb',$breadcrumb);
     }
 
     public function create(){
@@ -41,6 +41,6 @@ class ClientsController extends Controller
             array('label'=>'Manage Clients','url'=>'/clients','class'=>''),
             array('label'=>'Add','url'=>'/clients/add','class'=>'')
             );
-    	return view('clients.add')->with('breadcrumb',$breadcrumb);
+    	return view('admin.clients.add')->with('breadcrumb',$breadcrumb);
     }
 }

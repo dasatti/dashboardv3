@@ -33,6 +33,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/gsm/add','GsmController@create');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
-
 	Route::get('/calls','CallsController@index');
+	Route::get('/emails','EmailsController@index');
+	Route::get('/sms','SmsController@index');
 });
