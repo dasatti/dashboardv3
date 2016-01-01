@@ -7,7 +7,15 @@
 				<li class="">
 					<a href="{{url('/')}}">
 						<i class="fa fa-dashboard"></i>
-						<span class="title">Dashboard</span>
+						<span class="title">Dashboard 
+                       @if (Auth::user()->account_type =='admin')
+                        {{' (Admin) '}}
+                         @elseif(Auth::user()->account_type =='client')
+                         {{' (Client) '}}
+                         @else
+                         {{' (Guest) '}}
+                       @endif 
+                        </span>
 					</a>
 				</li>
 				<li class="has-sub">

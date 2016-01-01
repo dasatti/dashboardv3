@@ -142,8 +142,8 @@
 			
 			<div class="login-bottom-links">
 				
-				<!--<a href="extra-forgot-password.html" class="link">Forgot your password?</a>-->
-                  <a class="link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+				<!--<a href="extra-forgot-password.html" class="link">Forgot your password?</a>
+                  <a class="link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>-->
 				
 				<br />
 				
