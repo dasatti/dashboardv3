@@ -36,4 +36,5 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/calls','CallsController@index');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
+	Route::get('/roi','RoiController@index');
 });

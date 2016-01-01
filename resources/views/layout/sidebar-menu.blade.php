@@ -143,7 +143,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{url('/')}}">
+					<a href="{{url('/roi')}}">
 						<i class="fa fa-line-chart"></i>
 						<span class="title">ROI</span>
 					</a>
