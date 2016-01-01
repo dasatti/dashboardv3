@@ -27,7 +27,7 @@ Route::group(['middleware' => 'web'], function () {
 		}
     });
     Route::auth();
-
+	
     Route::get('/home', 'HomeController@index');
 	Route::get('/gsm','GsmController@index');
 	Route::get('/gsm/add','GsmController@create');
