@@ -6,9 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+///use App\Http\Controllers\Auth\AuthController as Auth;
 class GsmController extends Controller
 {
+	
+	
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +28,7 @@ class GsmController extends Controller
      */
     public function index()
     {
+
         $phones = array(
                 array('gsm_number'=>'11223344','assigned'=>'0','is_test'=>'0'),
                 array('gsm_number'=>'11223355','assigned'=>'1','is_test'=>'0'),

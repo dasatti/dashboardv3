@@ -11,32 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+//    Route::get('/home', function(){
+	//		return view('index');
+	//});
 
-	
-
-	//if(Auth::user()){
-	$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
-    return view('index')->with('breadcrumb',$breadcrumb);
-	//}else{
-		//return view('auth/login');
-	//}
-});
-
-
-
-Route::get('/gsm','GsmController@index');
-Route::get('/gsm/add','GsmController@create');
-
-
-
-    Route::get('/home', function(){
-		
-		return view('index');
-		});
 
 Route::group(['middleware' => 'web'], function () {
-		
+		//echo  'sdsd'; exit;
 	Route::get('/', function ()    {
 		if(Auth::user()){
 			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
@@ -48,4 +29,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+	Route::get('/gsm','GsmController@index');
+	Route::get('/gsm/add','GsmController@create');
 });
