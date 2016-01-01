@@ -36,12 +36,25 @@
 						<span class="title">Manage Phone Numbers</span>
 					</a>
 				</li>
-				<li class="">
-					<a href="">
-						<i class="fa fa-male"></i>
+				<li class="has-sub">
+					<a href="{{url('clients')}}">
+						<i class="fa fa-user"></i>
+
 						<span class="title">Manage Clients</span>
 						<!--<span class="badge badge-secondary">8</span>-->
 					</a>
+					<ul>
+						<li>
+							<a href="{{url('clients/add')}}">
+								<span class="title">Add Client</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{url('clients')}}">
+								<span class="title">List Clients</span>
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<a href="">

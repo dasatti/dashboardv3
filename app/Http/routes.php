@@ -31,4 +31,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 	Route::get('/gsm','GsmController@index');
 	Route::get('/gsm/add','GsmController@create');
+	Route::get('/clients','ClientsController@index');
+	Route::get('/clients/add','ClientsController@create');
+
+	Route::get('/calls','CallsController@index');
 });
