@@ -7,7 +7,7 @@
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
 
 
-		<h2>Add GSM Number</h2>
+		<h2>Add Api Key</h2>
 		<br />
 		
 		
@@ -18,7 +18,7 @@
 				
 					<div class="panel-heading">
 						<div class="panel-title">
-							Add new GSM number
+							Add new Api Key
 						</div>
 						
 						<div class="panel-options">
@@ -31,24 +31,25 @@
 						
 
 						{!! Form::open(
-							array('url'=>'gsm/add', 'class'=>'form-horizontal','role'=>'form'))
+							array('url'=>'api/add', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
 			
 							<div class="form-group">
-								{{ Form::label('phone_number', 'Phone Number',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('company_name', 'Company Name',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
-									{{ Form::text('phone_number', null,['placeholder'=>'Phone Number','class'=>'form-control']) }}
+									{{ Form::text('company_name', null,['placeholder'=>'Company name','class'=>'form-control']) }}
+								</div>
+							</div>							
+							<div class="form-group">
+								{{ Form::label('gsm_number', 'Gsm Number',['class'=>'col-sm-3 control-label']) }}
+								<div class="col-sm-5">
+									{{ Form::text('gsm_number', null,['placeholder'=>'Gsm Number','class'=>'form-control']) }}
 								</div>
 							</div>
-							
-							
-							
 							<div class="form-group">
-								{{ Form::label('test_number', 'Test Number',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('key', 'Authentication Key',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
-									{{
-										Form::select('test_number', array('1' => 'Yes', '0' => 'No'),null,['class'=>'form-control'])
-									}}
+									{{ Form::text('key', null,['placeholder'=>'02405312112c2c45ab83b8b7bea15080','class'=>'form-control'], 'disabled') }}
 								</div>
 							</div>
 							

@@ -30,7 +30,7 @@
 					<div class="panel-body">
 
 						{!! Form::open(
-							array('url'=>'clients/add', 'class'=>'form-horizontal form-groups-bordered','role'=>'form'))
+							array('url'=>'clients/add', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
 						<div class="col-md-8">
 							<div class="form-group">

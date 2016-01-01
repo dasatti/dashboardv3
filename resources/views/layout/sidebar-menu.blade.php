@@ -5,7 +5,7 @@
 				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 				<li class="">
-					<a href="{{url('/')}}">
+					<a href="{{url('/dashboard')}}">
 						<i class="fa fa-dashboard"></i>
 						<span class="title">Dashboard 
                        {{' (Admin) '}}
@@ -56,11 +56,23 @@
 						<span class="title">Manage Campaigns</span>
 					</a>
 				</li>
-				<li>
-					<a href="">
+				<li class="has-sub">
+					<a href="{{url('api')}}">
 						<i class="fa fa-key"></i>
 						<span class="title">API Authentications</span>
 					</a>
+					<ul>
+						<li>
+							<a href="{{url('api/add')}}">
+								<span class="title">Add Api Key</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{url('api')}}">
+								<span class="title">List Authentication Keys</span>
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<a href="{{url('calls')}}">

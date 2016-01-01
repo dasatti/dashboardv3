@@ -20,7 +20,7 @@ Route::group(['middleware' => 'web'], function () {
 		//echo  'sdsd'; exit;
 	Route::get('/', function ()    {
 		if(Auth::user()){
-			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'));
+			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/dashboard','class'=>'entypo-home'));
 		    return view('index')->with('breadcrumb',$breadcrumb);
 		}else{
 			return view('auth/login');	
@@ -29,10 +29,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+	Route::get('/dashboard','DashboardController@index');
 	Route::get('/gsm','GsmController@index');
 	Route::get('/gsm/add','GsmController@create');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
+	Route::get('/api','ApiController@index');
+	Route::get('/api/add','ApiController@create');
 	Route::get('/calls','CallsController@index');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
