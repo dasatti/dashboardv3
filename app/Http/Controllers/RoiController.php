@@ -17,7 +17,11 @@ class RoiController extends Controller
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage Roi','url'=>'/roi','class'=>'')
             );
-        return view('admin.roi')->with('roi',$roi)->with('breadcrumb',$breadcrumb);
+        return view('client.roi')->with('roi',$roi)->with('breadcrumb',$breadcrumb);
     }
+	
+	/*if (Gate::denies('update-contact', $contact)) {
+    abort(403);
+	}*/
 
 }

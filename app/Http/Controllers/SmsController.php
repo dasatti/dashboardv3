@@ -18,4 +18,14 @@ class SmsController extends Controller
             );
         return view('admin.sms')->with('sms',$sms)->with('breadcrumb',$breadcrumb);
     }
+	
+	public function indexClient(){
+		$sms = array(
+            );
+        $breadcrumb = array(
+            array('label'=>'Dashboard For Client','url'=>'/','class'=>'entypo-home'),
+            array('label'=>'Manage Sms For Client','url'=>'/sms','class'=>'')
+            );
+        return view('client.sms')->with('sms',$sms)->with('breadcrumb',$breadcrumb);
+    }
 }

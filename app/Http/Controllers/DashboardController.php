@@ -17,4 +17,6 @@ class DashboardController extends Controller
             );
         return view('admin.dashboard')->with('sms',$sms)->with('breadcrumb',$breadcrumb);
     }
+	
+	
 }

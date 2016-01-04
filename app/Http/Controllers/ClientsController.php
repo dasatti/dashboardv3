@@ -35,6 +35,7 @@ class ClientsController extends Controller
         return view('admin.clients.index')->with('clients',$clients)->with('breadcrumb',$breadcrumb);
     }
 
+
     public function create(){
     	$breadcrumb = array(
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
