@@ -94,29 +94,7 @@
 </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-4">
-        <div class="tile-stats tile-aqua">
-            <div class="icon"><i class="entypo-clock"></i></div>
-            <div class="num" id="avg-call-time">5.00 Sec</div>
-            <h3>AVERAGE CALL TIME</h3>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="tile-stats tile-green">
-            <div class="icon"><i class="entypo-calendar"></i></div>
-            <div class="num" id="most-active-day" style="text-transform: uppercase;">Wednesday</div>
-            <h3>MOST ACTIVE DAY</h3>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="tile-stats tile-red">
-            <div class="icon"><i class="entypo-phone"></i></div>
-            <div class="num">0</div>
-            <h3>MISSED CALLS</h3>
-        </div>
-    </div>
-</div>
+
 
 
 @stop

@@ -117,25 +117,88 @@
                         </span>
 					</a>
 				</li>
-				<!--<li class="has-sub">
+				<li class="has-sub">
 					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
-						<span class="title">Manage Phone Numbers</span>
+						<span class="title">campaigns A</span>
 					</a>
 					<ul>
 						<li>
-							<a href="{{url('gsm/add')}}">
-								<span class="title">Add GSM Number</span>
-							</a>
+							<a href="{{url('calls')}}">
+						<i class="fa fa-tty"></i>
+						<span class="title">Calls</span>
+						<span class="badge badge-secondary">8</span>
+					</a>
 						</li>
 						<li>
-							<a href="{{url('gsm')}}">
-								<span class="title">List Numbers</span>
-							</a>
+							<a href="{{url('emails')}}">
+						<i class="fa fa-envelope-o"></i>
+						<span class="title">Emails</span>
+					</a>
+						</li>
+                        <li>
+							<a href="{{url('sms')}}">
+						<i class="fa fa-weixin"></i>
+						<span class="title">Manage SMS</span>
+						</a>
 						</li>
 					</ul>
-				</li>-->
-                <li class="">
+				</li>
+                <li class="has-sub">
+					<a href="{{url('gsm')}}">
+						<i class="fa fa-list"></i>
+						<span class="title">campaigns B</span>
+					</a>
+					<ul>
+						<li>
+							<a href="{{url('calls')}}">
+						<i class="fa fa-tty"></i>
+						<span class="title">Calls</span>
+						<span class="badge badge-secondary">8</span>
+					</a>
+						</li>
+						<li>
+							<a href="{{url('emails')}}">
+						<i class="fa fa-envelope-o"></i>
+						<span class="title">Emails</span>
+					</a>
+						</li>
+                        <li>
+							<a href="{{url('sms')}}">
+						<i class="fa fa-weixin"></i>
+						<span class="title">Manage SMS</span>
+						</a>
+						</li>
+					</ul>
+				</li>
+                <li class="has-sub">
+					<a href="{{url('gsm')}}">
+						<i class="fa fa-list"></i>
+						<span class="title">campaigns C</span>
+					</a>
+					<ul>
+						<li>
+							<a href="{{url('calls')}}">
+						<i class="fa fa-tty"></i>
+						<span class="title">Calls</span>
+						<span class="badge badge-secondary">8</span>
+					</a>
+						</li>
+						<li>
+							<a href="{{url('emails')}}">
+						<i class="fa fa-envelope-o"></i>
+						<span class="title">Emails</span>
+					</a>
+						</li>
+                        <li>
+							<a href="{{url('sms')}}">
+						<i class="fa fa-weixin"></i>
+						<span class="title">Manage SMS</span>
+						</a>
+						</li>
+					</ul>
+				</li>
+               <!-- <li class="">
 					<a href="{{url('/')}}">
 						<i class="entypo-chart-bar"></i>
 						<span class="title">Leads</span>
@@ -165,7 +228,7 @@
 						<i class="fa fa-weixin"></i>
 						<span class="title">Manage SMS</span>
 					</a>
-				</li>
+				</li>-->
 				<li>
 					<a href="{{url('roi')}}">
 						<i class="fa fa-line-chart"></i>

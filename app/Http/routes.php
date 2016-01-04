@@ -36,7 +36,7 @@ Route::group(['middleware' => 'web'], function () {
 			return view('index')->with('breadcrumb',$breadcrumb);
 		}else if( Auth::user()->account_type =='client'){
 			$breadcrumb=array(array('label'=>'Dashboard Client','url'=>'/dashboard','class'=>'entypo-home'));
-			return view('home-client')->with('breadcrumb',$breadcrumb);
+			return view('client.dashboard')->with('breadcrumb',$breadcrumb);
 		}
 	}else{
 		return view('auth/login');	
