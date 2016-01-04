@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	jQuery( document ).ready( function( $ ) {
 
-		init_datatable("table-phones");
+		init_datatable("table-campaigns");
 
 	} );
 </script>
@@ -26,27 +26,35 @@
 
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
 
-<h2>Manage GSM Numbers</h2>
+<h2>Manage Campaigns</h2>
 
 
 		
 
-		<table class="table table-bordered datatable" id="table-phones">
+		<table class="table table-bordered datatable" id="table-campaigns">
 			<thead>
 				<tr class="replace-inputs">
+					<th>Name</th>
+					<th>Client Name</th>
 					<th>GSM Number</th>
-					<th>Assigned</th>
-					<th>Test</th>
+					<th>Unbounce ID</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Status</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 
-			@foreach($phones as $phone)
+			@foreach($campaigns as $campaign)
 				<tr class="">
-					<td>{{ $phone['gsm_number'] }}</td>
-					<td>{{ $phone['assigned'] }}</td>
-					<td>{{ $phone['is_test'] }}</td>
+					<td>{{ $campaign['name'] }}</td>
+					<td>{{ $campaign['client_name'] }}</td>
+					<td>{{ $campaign['gsm_number'] }}</td>
+					<td>{{ $campaign['unbounce_id'] }}</td>
+					<td>{{ $campaign['start_date'] }}</td>
+					<td>{{ $campaign['end_date'] }}</td>
+					<td>{{ $campaign['status'] }}</td>
 					<td class="center">
 						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
@@ -65,9 +73,13 @@
 			</tbody>
 			<tfoot>
 				<tr>
+					<th>Name</th>
+					<th>Client Name</th>
 					<th>GSM Number</th>
-					<th>Assigned</th>
-					<th>Test</th>
+					<th>Unbounce ID</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Status</th>
 					<th>Actions</th>
 				</tr>
 			</tfoot>

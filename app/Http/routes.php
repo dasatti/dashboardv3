@@ -32,6 +32,7 @@ Route::group(['middleware' => 'web'], function () {
 		//echo  '<pre>';print_r(Auth::user());
 		if( Auth::user()->account_type=='admin'){
 			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/dashboard','class'=>'entypo-home'));
+
 			return view('index')->with('breadcrumb',$breadcrumb);
 		}else if( Auth::user()->account_type =='client'){
 			$breadcrumb=array(array('label'=>'Dashboard Client','url'=>'/dashboard','class'=>'entypo-home'));
@@ -52,6 +53,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/gsm/add','GsmController@create');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
+	Route::get('/campaigns','CampaignsController@index');
+	Route::get('/campaigns/add','CampaignsController@create');
 	Route::get('/api','ApiController@index');
 	Route::get('/api/add','ApiController@create');
 	Route::get('/calls','CallsController@index');
