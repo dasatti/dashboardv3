@@ -48,7 +48,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
 	Route::get('/gsm','GsmController@index');
-	Route::get('/gsm/add','GsmController@create');
+	Route::get('/gsm/add','GsmController@add');
+	Route::post('/gsm/create','GsmController@create');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
 	Route::get('/campaigns','CampaignsController@index');

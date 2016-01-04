@@ -45,7 +45,7 @@
 			@foreach($phones as $phone)
 				<tr class="">
 					<td>{{ $phone['gsm_number'] }}</td>
-					<td>{{ $phone['assigned'] }}</td>
+					<td>#Will be calculated#</td>
 					<td>{{ $phone['is_test'] }}</td>
 					<td class="center">
 						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
+use App\GsmNumber;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 ///use App\Http\Controllers\Auth\AuthController as Auth;
@@ -28,21 +29,28 @@ class GsmController extends Controller
      */
     public function index()
     {
-
-        $phones = array(
-                array('gsm_number'=>'11223344','assigned'=>'0','is_test'=>'0'),
-                array('gsm_number'=>'11223355','assigned'=>'1','is_test'=>'0'),
-                array('gsm_number'=>'11223366','assigned'=>'0','is_test'=>'0'),
-                array('gsm_number'=>'11223377','assigned'=>'1','is_test'=>'0'),
-                array('gsm_number'=>'11223388','assigned'=>'0','is_test'=>'0'),
-                array('gsm_number'=>'11223399','assigned'=>'1','is_test'=>'0'),
-                array('gsm_number'=>'11223300','assigned'=>'0','is_test'=>'0'),
-            );
+        $phones = GsmNumber::all();
         $breadcrumb = array(
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>'')
             );
         return view('admin.gsm.index')->with('phones',$phones)->with('breadcrumb',$breadcrumb);
+    }
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        $breadcrumb = array(
+            array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
+            array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
+            array('label'=>'Add','url'=>'/gsm/add','class'=>'')
+        );
+        return view('admin.gsm.add')->with('breadcrumb',$breadcrumb);
     }
 
     /**
@@ -52,12 +60,9 @@ class GsmController extends Controller
      */
     public function create()
     {
-        $breadcrumb = array(
-            array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
-            array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
-            array('label'=>'Add','url'=>'/gsm/add','class'=>'')
-        );
-        return view('admin.gsm.add')->with('breadcrumb',$breadcrumb);
+        $input = Request::all();
+        GsmNumber::create($input);
+        return redirect('gsm');
     }
 
     /**

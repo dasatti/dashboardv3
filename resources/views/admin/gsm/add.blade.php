@@ -31,23 +31,23 @@
 						
 
 						{!! Form::open(
-							array('url'=>'gsm/add', 'class'=>'form-horizontal','role'=>'form'))
+							array('url'=>'gsm/create', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
 			
 							<div class="form-group">
-								{{ Form::label('phone_number', 'Phone Number',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('gsm_number', 'Phone Number',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
-									{{ Form::text('phone_number', null,['placeholder'=>'Phone Number','class'=>'form-control']) }}
+									{{ Form::text('gsm_number', null,['placeholder'=>'Phone Number','class'=>'form-control']) }}
 								</div>
 							</div>
 							
 							
 							
 							<div class="form-group">
-								{{ Form::label('test_number', 'Test Number',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('is_test', 'Test Number',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									{{
-										Form::select('test_number', array('1' => 'Yes', '0' => 'No'),null,['class'=>'form-control'])
+										Form::select('is_test', array('1' => 'Yes', '0' => 'No'),null,['class'=>'form-control'])
 									}}
 								</div>
 							</div>
