@@ -117,10 +117,18 @@
                         </span>
 					</a>
 				</li>
+                <li class="has-sub">
+                <a href="{{url('/')}}">
+						<i class="fa fa-list"></i>
+						<span class="title">Manage Campaigns 
+                       {{' (Client) '}}
+                        </span>
+					</a>
+                <ul>
 				<li class="has-sub">
 					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
-						<span class="title">campaigns A</span>
+						<span class="title">campaign A</span>
 					</a>
 					<ul>
 						<li>
@@ -147,7 +155,7 @@
                 <li class="has-sub">
 					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
-						<span class="title">campaigns B</span>
+						<span class="title">campaign B</span>
 					</a>
 					<ul>
 						<li>
@@ -174,7 +182,7 @@
                 <li class="has-sub">
 					<a href="{{url('gsm')}}">
 						<i class="fa fa-list"></i>
-						<span class="title">campaigns C</span>
+						<span class="title">campaign C</span>
 					</a>
 					<ul>
 						<li>
@@ -198,6 +206,8 @@
 						</li>
 					</ul>
 				</li>
+                </ul>
+                </li>
                <!-- <li class="">
 					<a href="{{url('/')}}">
 						<i class="entypo-chart-bar"></i>
