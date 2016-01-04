@@ -51,10 +51,22 @@
 					</ul>
 				</li>
 				<li>
-					<a href="">
+					<a href="has-sub">
 						<i class="fa fa-road"></i>
 						<span class="title">Manage Campaigns</span>
 					</a>
+					<ul>
+						<li>
+							<a href="{{url('campaigns/add')}}">
+								<span class="title">Add Campaign</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{url('campaigns')}}">
+								<span class="title">List Campaigns</span>
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li class="has-sub">
 					<a href="{{url('api')}}">

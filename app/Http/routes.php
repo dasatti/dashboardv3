@@ -21,7 +21,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/', function ()    {
 		if(Auth::user()){
 			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/dashboard','class'=>'entypo-home'));
-		    return view('index')->with('breadcrumb',$breadcrumb);
+		    return view('index')->with('breadcr
+		    	umb',$breadcrumb);
 		}else{
 			return view('auth/login');	
 		}
@@ -34,6 +35,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/gsm/add','GsmController@create');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
+	Route::get('/campaigns','CampaignsController@index');
+	Route::get('/campaigns/add','CampaignsController@create');
 	Route::get('/api','ApiController@index');
 	Route::get('/api/add','ApiController@create');
 	Route::get('/calls','CallsController@index');

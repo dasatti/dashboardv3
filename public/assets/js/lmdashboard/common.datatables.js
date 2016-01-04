@@ -16,6 +16,10 @@ function init_datatable(table_id){
 
 	var table_dt = table.DataTable( {
 		//initialize here
+    	dom: 'lBfrtip',
+        buttons: [
+        	'copy', 'csv', 'excel', 'pdf', 'print'
+    	]
 	} );
 
 	

@@ -17,20 +17,21 @@
       var line_chart_demo = $("#line-chart-demo");
     
       var line_chart = Morris.Line({
-        element: 'line-chart-demo',
+        element: 'leads-chart',
         data: [
-          { y: '2006', a: 100, b: 90 },
-          { y: '2007', a: 75,  b: 65 },
-          { y: '2008', a: 50,  b: 40 },
-          { y: '2009', a: 75,  b: 65 },
-          { y: '2010', a: 50,  b: 40 },
-          { y: '2011', a: 75,  b: 65 },
-          { y: '2012', a: 100, b: 90 }
+          { y: '2006', a: 100, b: 90, c: 80 },
+          { y: '2007', a: 75,  b: 65, c: 75 },
+          { y: '2008', a: 50,  b: 40, c: 65 },
+          { y: '2009', a: 75,  b: 65, c: 45 },
+          { y: '2010', a: 50,  b: 40, c: 55 },
+          { y: '2011', a: 75,  b: 65, c: 85 },
+          { y: '2012', a: 100, b: 90, c: 90 }
         ],
         xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['October 2013', 'November 2013'],
-        redraw: true
+        ykeys: ['a', 'b', 'c'],
+        redraw: true,
+        labels: ['Calls','Emails' ,'Leads' ],
+        lineColors: ['#00a65a','#00c0ef' , '#f56954']
       });
 
 
@@ -85,7 +86,7 @@
       <div class="panel-body">
         <div class="tab-content">
           <div id="showGraph">
-            <div id="line-chart-demo" class="morrischart" style="height: 300px"></div>
+            <div id="leads-chart" class="morrischart" style="height: 300px"></div>
 
         </div>
       </div>
