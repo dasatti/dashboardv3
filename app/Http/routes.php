@@ -43,9 +43,7 @@ Route::group(['middleware' => 'web'], function () {
 	}
     });
 	
-
 	
-
   
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
@@ -60,13 +58,13 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/calls','CallsController@index');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
-	Route::get('/client/roi','RoiController@index');// For clients
-	Route::get('/client/sms','SmsController@indexClient');// For clients
-	Route::get('/client/emails','EmailsController@indexClient'); // For Clients
+	Route::get('/roi','RoiController@index');// For clients
+	//Route::get('/client/sms','SmsController@indexClient');// For clients
+	//Route::get('/client/emails','EmailsController@indexClient'); // For Clients
 	//Route::get('/client/calls', function ()    {
 		//echo  Auth::user()->name;
 		//return view('CallsController.indexClient');
-		Route::get('/client/calls','CallsController@indexClient');// For clients
+		//Route::get('/client/calls','CallsController@indexClient');// For clients
 	//});
 
 });
