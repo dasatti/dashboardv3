@@ -9,9 +9,9 @@ use App\Http\Controllers\Controller;
 
 class CallsController extends Controller
 {
-    
 
     public function index(){
+		
 		$calls = array(
                 array('s_no'=>'1','phone_number'=>'11223344','client_number'=>'1122334455',
                 	'date'=>'Jun 11, 2015','time'=>'12:00 AM','success'=>'SUCCESS','new_call'=>'1'),
@@ -36,6 +36,7 @@ class CallsController extends Controller
     }
 
     public function indexClient(){
+		//echo  'sssss'.Auth::user()->name; exit;
 		$calls = array(
                 array('s_no'=>'1','phone_number'=>'11223344','client_number'=>'1122334455',
                 	'date'=>'Jun 11, 2015','time'=>'12:00 AM','success'=>'SUCCESS','new_call'=>'1'),

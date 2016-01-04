@@ -20,12 +20,13 @@
 		echo  Auth::user()->account_type;
 }]);*/
 	
-	
+
 Route::group(['middleware' => 'web'], function () {
   Route::auth();	
 		//echo  Auth::user()->name;
 		//echo  'sdsd'; exit;
 	Route::get('/', function ()    {
+	
 	if(Auth::user()){
 		
 		//echo  '<pre>';print_r(Auth::user());
@@ -59,5 +60,10 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/client/roi','RoiController@index');// For clients
 	Route::get('/client/sms','SmsController@indexClient');// For clients
 	Route::get('/client/emails','EmailsController@indexClient'); // For Clients
-	Route::get('/client/calls','CallsController@indexClient');// For clients
+	//Route::get('/client/calls', function ()    {
+		//echo  Auth::user()->name;
+		//return view('CallsController.indexClient');
+		Route::get('/client/calls','CallsController@indexClient');// For clients
+	//});
+
 });

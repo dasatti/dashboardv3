@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+		//dd($user->id);
         return view('home');
     }
 }
