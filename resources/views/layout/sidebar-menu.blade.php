@@ -148,26 +148,26 @@
 					</a>
 				</li>
 				<li class="">
-					<a href="{{url('calls')}}">
+					<a href="{{url('client/calls')}}">
 						<i class="fa fa-tty"></i>
 						<span class="title">Calls</span>
 						<span class="badge badge-secondary">8</span>
 					</a>
 				</li>
 				<li>
-					<a href="{{url('emails')}}">
+					<a href="{{url('client/emails')}}">
 						<i class="fa fa-envelope-o"></i>
 						<span class="title">Emails</span>
 					</a>
 				</li>
 				<li>
-					<a href="{{url('sms')}}">
+					<a href="{{url('client/sms')}}">
 						<i class="fa fa-weixin"></i>
 						<span class="title">Manage SMS</span>
 					</a>
 				</li>
 				<li>
-					<a href="{{url('/roi')}}">
+					<a href="{{url('client/roi')}}">
 						<i class="fa fa-line-chart"></i>
 						<span class="title">ROI</span>
 					</a>

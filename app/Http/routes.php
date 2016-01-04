@@ -14,21 +14,38 @@
 //    Route::get('/home', function(){
 	//		return view('index');
 	//});
-
-
+/*Route::get('client/calls', ['middleware' => 'auth', function(){
+    // Only authenticated users may enter...
+		Route::get('/client/calls','CallsController@indexClient');// For clients
+		echo  Auth::user()->account_type;
+}]);*/
+	
+	
 Route::group(['middleware' => 'web'], function () {
+  Route::auth();	
+		//echo  Auth::user()->name;
 		//echo  'sdsd'; exit;
 	Route::get('/', function ()    {
-		if(Auth::user()){
+	if(Auth::user()){
+		
+		//echo  '<pre>';print_r(Auth::user());
+		if( Auth::user()->account_type=='admin'){
 			$breadcrumb=array(array('label'=>'Dashboard','url'=>'/dashboard','class'=>'entypo-home'));
-		    return view('index')->with('breadcr
-		    	umb',$breadcrumb);
-		}else{
-			return view('auth/login');	
+
+			return view('index')->with('breadcrumb',$breadcrumb);
+		}else if( Auth::user()->account_type =='client'){
+			$breadcrumb=array(array('label'=>'Dashboard Client','url'=>'/dashboard','class'=>'entypo-home'));
+			return view('home-client')->with('breadcrumb',$breadcrumb);
 		}
+	}else{
+		return view('auth/login');	
+	}
     });
-    Route::auth();
 	
+
+	
+
+  
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
 	Route::get('/gsm','GsmController@index');
@@ -42,5 +59,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/calls','CallsController@index');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
-	Route::get('/roi','RoiController@index');
+	Route::get('/client/roi','RoiController@index');// For clients
+	Route::get('/client/sms','SmsController@indexClient');// For clients
+	Route::get('/client/emails','EmailsController@indexClient'); // For Clients
+	Route::get('/client/calls','CallsController@indexClient');// For clients
 });
