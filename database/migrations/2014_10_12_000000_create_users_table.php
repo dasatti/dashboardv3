@@ -17,14 +17,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-			$table->string('username');
+			$table->string('username')->unique();
 			$table->string('thumbnail');
 			$table->string('company');
 			$table->string('phone_number');
 			$table->text('address');
 			$table->enum('account_type', ['admin', 'client'])->default('client');
-			$table->enum('email_status', ['enable', 'disable'])->default('enable');
-			$table->enum('enabled', ['enable', 'disable'])->default('enable');
+			$table->enum('email_status', ['verified', 'not_verified'])->default('not_verified');
             $table->rememberToken();
             $table->timestamps();
         });

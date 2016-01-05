@@ -19,14 +19,14 @@ class CreateEmailsTable extends Migration
             $table->string('phone');
             $table->string('country');
             $table->text('message');
-            $table->enum('gender', ['male', 'female'])->default('male');
+            $table->enum('gender',['male', 'female'])->default('male');
             $table->date('email_date');
             $table->time('email_time');
             $table->string('request_id');
-            $table->string('unbounce_id');
-            $table->enum('test_data', ['yes', 'no'])->default('no');
+			$table->string('unbounce_id');
+			$table->foreign('unbounce_id')->references('unbounce_id')->on('campaigns');
+            $table->enum('test_data', ['1', '0'])->default('0');	
             $table->timestamps();
-
         });
     }
 

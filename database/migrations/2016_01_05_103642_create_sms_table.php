@@ -15,7 +15,8 @@ class CreateSmsTable extends Migration
         Schema::create('sms',function(Blueprint $table){
             $table->increments('id');
             $table->string('caller_id');
-            $table->string('gsm_number');
+            $table->integer('gsm_number');
+            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers ');
             $table->string('forward_number');
             $table->text('sms');
             $table->dateTime('sms_date');

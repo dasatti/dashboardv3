@@ -14,17 +14,19 @@ class CreateCampaignsTable extends Migration
     {
         Schema::create('campaigns',function (Blueprint $table){
             $table->increments('id');
-            $table->string('clients_id');
+            $table->integer('clients_id')->unsigned();
+			$table->foreign('clients_id')->references('id')->on('users');
             $table->string('name');
-            $table->string('gsm_numbers',10);
-            $table->string('unbounce_id');
+            $table->integer('gsm_number');
+            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers');
+			$table->string('unbounce_id')->unique();
             $table->string('ga_view_id');
             $table->dateTime('stat_date');
             $table->dateTime('end_date');
-            $table->string('campaign_login');
+            $table->string('campaign_login')->unique();
             $table->string('compaign_password');
-            $table->enum('notify_email', ['yes', 'no'])->default('no');
-            $table->enum('noreply_email', ['yes', 'no'])->default('no');
+            $table->string('notify_email');
+            $table->string('noreply_email');
             $table->timestamps();
 
         });

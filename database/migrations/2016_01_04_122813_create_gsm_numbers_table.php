@@ -14,8 +14,8 @@ class CreateGsmNumbersTable extends Migration
     {
         Schema::create('gsm_numbers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('gsm_number',10);
-            $table->boolean('is_test');
+            $table->integer('gsm_number')->unique();
+			$table->enum('is_test', ['1', '0'])->default('0');	
             $table->timestamps();
         });
     }
