@@ -74,10 +74,11 @@ class GsmController extends Controller
     {
         
         $this->validate($request, [
-            'gsm_number' => 'required'
+            'gsm_number' => 'required|numeric'
         ]);
         $input = $request->all();
         GsmNumber::create($input);
+        //Session::flash('flash_message', 'Gsm number successfully updated!');
         return redirect('gsm');
     }
 
@@ -118,9 +119,12 @@ class GsmController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'gsm_number' => 'required|numeric'
+        ]);
         $gsm = GsmNumber::findOrFail($id);
         $gsm->update($request->all());
-        $gsm->save();
+        //Session::flash('flash_message', 'Gsm number successfully updated!');
         return redirect('gsm');
     }
 
@@ -134,6 +138,7 @@ class GsmController extends Controller
     {
         $gsm = GsmNumber::findOrFail($id);
         $gsm->delete();
+        //Session::flash('flash_message', 'Gsm number successfully deleted!');
         return redirect('gsm');
     }
 }

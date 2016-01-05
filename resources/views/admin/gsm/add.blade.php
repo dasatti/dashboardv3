@@ -38,8 +38,8 @@
 						 !!}
 			
 							<div class="form-group">
-								{{ Form::label('gsm_number', 'Phone Number',['class'=>'col-sm-3 control-label']) }}
-								<div class="col-sm-5">
+								{{ Form::label('gsm_number', 'Phone Number',['class'=>'col-md-3 control-label']) }}
+								<div class="col-md-5">
 									{{ Form::text('gsm_number', null,['placeholder'=>'Phone Number','class'=>'form-control']) }}
 								</div>
 							</div>
@@ -47,8 +47,8 @@
 							
 							
 							<div class="form-group">
-								{{ Form::label('is_test', 'Test Number',['class'=>'col-sm-3 control-label']) }}
-								<div class="col-sm-5">
+								{{ Form::label('is_test', 'Test Number',['class'=>'col-md-3 control-label']) }}
+								<div class="col-md-5">
 									{{
 										Form::select('is_test', array('1' => 'Yes', '0' => 'No'),null,['class'=>'form-control'])
 									}}
@@ -58,7 +58,7 @@
 							
 							
 							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-5">
+								<div class="col-md-offset-3 col-md-5">
 
 									{{ Form::submit('Add',null,['class'=>'btn btn-default']) }}
 								</div>

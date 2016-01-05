@@ -52,7 +52,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/gsm/store','GsmController@store');
 	Route::get('/gsm/edit/{id}','GsmController@edit');
 	Route::put('/gsm/update/{id}','GsmController@update');
-	Route::delete('/gsm/delete/{id}','GsmController@delete');
+	Route::delete('/gsm/delete/{id}','GsmController@destroy');
 	Route::get('/clients','ClientsController@index');
 	Route::get('/clients/add','ClientsController@create');
 	Route::get('/campaigns','CampaignsController@index');
