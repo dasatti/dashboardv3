@@ -7,7 +7,7 @@
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
 
 
-		<h2>Add GSM Number</h2>
+		<h2>Edit GSM Number</h2>
 		<br />
 		
 		
@@ -21,7 +21,7 @@
 				
 					<div class="panel-heading">
 						<div class="panel-title">
-							Add new GSM number
+							Edit GSM number
 						</div>
 						
 						<div class="panel-options">
@@ -33,9 +33,8 @@
 					<div class="panel-body">
 						
 
-						{!! Form::open(
-							array('url'=>'gsm/store', 'class'=>'form-horizontal','role'=>'form'))
-						 !!}
+						
+						{!! Form::model($gsm_number, array('action' => array('GsmController@update', $gsm_number->id), 'method' => 'PUT')) !!}
 			
 							<div class="form-group">
 								{{ Form::label('gsm_number', 'Phone Number',['class'=>'col-sm-3 control-label']) }}
@@ -43,7 +42,6 @@
 									{{ Form::text('gsm_number', null,['placeholder'=>'Phone Number','class'=>'form-control']) }}
 								</div>
 							</div>
-							
 							
 							
 							<div class="form-group">
@@ -60,7 +58,7 @@
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-5">
 
-									{{ Form::submit('Add',null,['class'=>'btn btn-default']) }}
+									{{ Form::submit('Edit',null,['class'=>'btn btn-default']) }}
 								</div>
 							</div>
 

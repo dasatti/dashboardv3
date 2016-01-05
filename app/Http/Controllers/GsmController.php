@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 
 use App\GsmNumber;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 ///use App\Http\Controllers\Auth\AuthController as Auth;
 class GsmController extends Controller
 {
@@ -51,6 +52,7 @@ class GsmController extends Controller
             array('label'=>'Add','url'=>'/gsm/add','class'=>'')
         );
         return view('admin.gsm.add')->with('breadcrumb',$breadcrumb);
+        
     }
 
     /**
@@ -58,11 +60,8 @@ class GsmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $input = Request::all();
-        GsmNumber::create($input);
-        return redirect('gsm');
     }
 
     /**
@@ -73,7 +72,13 @@ class GsmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request, [
+            'gsm_number' => 'required'
+        ]);
+        $input = $request->all();
+        GsmNumber::create($input);
+        return redirect('gsm');
     }
 
     /**
@@ -95,7 +100,13 @@ class GsmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $breadcrumb = array(
+            array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
+            array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
+            array('label'=>'Edit','url'=>'/gsm/edit/'.$id,'class'=>'')
+        );
+        $gsm = GsmNumber::findOrFail($id);
+        return view('admin.gsm.edit')->with('gsm_number',$gsm)->with('breadcrumb',$breadcrumb);
     }
 
     /**
@@ -107,7 +118,10 @@ class GsmController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $gsm = GsmNumber::findOrFail($id);
+        $gsm->update($request->all());
+        $gsm->save();
+        return redirect('gsm');
     }
 
     /**
@@ -118,6 +132,8 @@ class GsmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gsm = GsmNumber::findOrFail($id);
+        $gsm->delete();
+        return redirect('gsm');
     }
 }

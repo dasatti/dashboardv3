@@ -48,7 +48,7 @@
 					<td>#Will be calculated#</td>
 					<td>{{ $phone['is_test'] }}</td>
 					<td class="center">
-						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
+						<a href="{{url('gsm/edit',$phone->id)}}" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
 							Edit
 						</a>
