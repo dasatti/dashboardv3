@@ -48,15 +48,20 @@
 					<td>#Will be calculated#</td>
 					<td>{{ $phone['is_test'] }}</td>
 					<td class="center">
+						
+						
+
+						{!! Form::open([
+				            'method' => 'DELETE',
+				            'action' => ['GsmController@destroy', $phone['id']]
+				        ]) !!}
 						<a href="{{url('gsm/edit',$phone->id)}}" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
 							Edit
 						</a>
-						
-						<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-							<i class="entypo-cancel"></i>
-							Delete
-						</a>
+
+				            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+				        {!! Form::close() !!}
 					</td>
 				</tr>
 
