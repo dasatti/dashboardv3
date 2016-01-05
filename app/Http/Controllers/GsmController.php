@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\GsmNumber;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 ///use App\Http\Controllers\Auth\AuthController as Auth;
 class GsmController extends Controller
 {
@@ -104,7 +105,7 @@ class GsmController extends Controller
             array('label'=>'Manage GSM Numbers','url'=>'/gsm','class'=>''),
             array('label'=>'Edit','url'=>'/gsm/edit/'.$id,'class'=>'')
         );
-        $gsm = GsmNumber::findOrFail($id);    
+        $gsm = GsmNumber::findOrFail($id);
         return view('admin.gsm.edit')->with('gsm_number',$gsm)->with('breadcrumb',$breadcrumb);
     }
 
