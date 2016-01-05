@@ -1,5 +1,5 @@
 			<!-- Profile Info and Notifications -->
-			<div class="col-md-6 col-sm-8 clearfix">
+			<div class="col-md-6 col-sm-6">
 		
 				@include('layout.header-profile-info')
 				
@@ -9,7 +9,7 @@
 		
 		
 			<!-- Raw Links -->
-			<div class="col-md-6 col-sm-4 clearfix hidden-xs">
+			<div class="col-md-6 col-sm-6">
 		
 				@include('layout.header-right-links')
 		
