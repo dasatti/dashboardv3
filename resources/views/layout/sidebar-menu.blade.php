@@ -133,9 +133,7 @@
                 <li class="has-sub">
                 <a href="{{url('/')}}">
 						<i class="fa fa-list"></i>
-						<span class="title">Manage Campaigns 
-                       {{' (Client) '}}
-                        </span>
+						<span class="title">Manage Campaigns</span>
 					</a>
                 <ul>
 				<li class="has-sub">

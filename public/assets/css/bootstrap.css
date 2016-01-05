@@ -3510,9 +3510,9 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 100px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 2px -48px 0;
   list-style: none;
   font-size: 12px;
   text-align: left;
