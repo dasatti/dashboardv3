@@ -47,6 +47,19 @@
 							<a href="{{url('clients')}}">
 								<span class="title">List Clients</span>
 							</a>
+
+							<ul>
+								<li><a href="{{url('clients')}}">
+								<span class="title">
+									All
+								</span></a></li>
+								<li><a href="#"><span class="title">
+									Client 1
+								</span></a></li>
+								<li><a href="#"><span class="title">
+									Client 2
+								</span></a></li>
+							</ul>
 						</li>
 					</ul>
 				</li>
