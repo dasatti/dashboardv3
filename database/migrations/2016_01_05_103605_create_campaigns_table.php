@@ -23,7 +23,7 @@ class CreateCampaignsTable extends Migration
                     ->onDelete('no action');
 			$table->string('unbounce_id')->unique();
             $table->string('ga_view_id');
-            $table->dateTime('stat_date');
+            $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('campaigns_login')->unique();
             $table->string('compaigns_password');
