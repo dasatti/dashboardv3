@@ -17,7 +17,8 @@ class CreateCallsTable extends Migration
             $table->increments('id');
             $table->string('callerid');
             $table->integer('gsm_number');
-            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers');
+            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers')
+                    ->onDelete('cascade');
 			$table->dateTime('call_start');
 			$table->dateTime('call_end');
 			$table->integer('total_duration');			
