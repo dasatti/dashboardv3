@@ -25,8 +25,8 @@ class CreateCampaignsTable extends Migration
             $table->string('ga_view_id');
             $table->dateTime('stat_date');
             $table->dateTime('end_date');
-            $table->string('campaign_login')->unique();
-            $table->string('compaign_password');
+            $table->string('campaigns_login')->unique();
+            $table->string('compaigns_password');
             $table->string('notify_email');
             $table->string('noreply_email');
             $table->timestamps();
@@ -39,6 +39,7 @@ class CreateCampaignsTable extends Migration
      *
      * @return void
      */
+	 
     public function down()
     {
         Schema::drop('campaigns');

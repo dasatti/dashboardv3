@@ -96,11 +96,11 @@
 								</div>
 								
 								<!--<input type="text" class="form-control" name="username" id="username" placeholder="Username" data-mask="[a-zA-Z0-1\.]+" data-is-regex="true" autocomplete="off" />-->
-                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="Full Name" data-mask="[a-zA-Z0-1\.]+" data-is-regex="true" autocomplete="off">
+                                 <input type="text" class="form-control" name="username" value="{{ old('username') }}" id="username" placeholder="Username" data-mask="[a-zA-Z0-1\.]+" data-is-regex="true" autocomplete="off">
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('username'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
 							</div>
