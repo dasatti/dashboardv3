@@ -34,7 +34,7 @@ class EmailsController extends Controller
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage Emails For Clients','url'=>'/sms','class'=>'')
             );
-        return view('Client.emails')->with('emails',$emails)->with('breadcrumb',$breadcrumb);
+        return view('client.emails')->with('emails',$emails)->with('breadcrumb',$breadcrumb);
 
     }
 }
