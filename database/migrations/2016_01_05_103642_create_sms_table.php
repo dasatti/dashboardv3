@@ -17,7 +17,7 @@ class CreateSmsTable extends Migration
             $table->string('caller_id');
             $table->integer('gsm_number');
             $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers')
-                    ->onDelete('cascade');
+                    ->onDelete('no action');
             $table->string('forward_number');
             $table->text('sms');
             $table->dateTime('sms_date');
