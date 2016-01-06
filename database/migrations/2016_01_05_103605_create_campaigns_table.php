@@ -16,11 +16,11 @@ class CreateCampaignsTable extends Migration
             $table->increments('id');
             $table->integer('clients_id')->unsigned();
 			$table->foreign('clients_id')->references('id')->on('users')
-                    ->onDelete('cascade');
+                    ->onDelete('no action');
             $table->string('name');
             $table->integer('gsm_number');
             $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers')
-                    ->onDelete('cascade');
+                    ->onDelete('no action');
 			$table->string('unbounce_id')->unique();
             $table->string('ga_view_id');
             $table->dateTime('stat_date');

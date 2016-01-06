@@ -25,7 +25,7 @@ class CreateEmailsTable extends Migration
             $table->string('request_id');
 			$table->string('unbounce_id');
 			$table->foreign('unbounce_id')->references('unbounce_id')->on('campaigns')
-                    ->onDelete('cascade');
+                    ->onDelete('no action');
             $table->enum('test_data', ['1', '0'])->default('0');	
             $table->timestamps();
         });
