@@ -1,4 +1,5 @@
 
+<div class="col-sm-8">
 <ol class="breadcrumb bc-3">
 
 @if(isset($breadcrumb) && is_array($breadcrumb))
@@ -13,3 +14,4 @@
 @endif
 
 </ol>
+</div>

@@ -25,12 +25,9 @@
 @section('content')
 
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
-
-<h2>Manage Campaigns</h2>
-
-
-		
-
+@include('components.filter')
+<div class="col-sm-12">
+<h2>Manage Campaigns</h2></div>
 		<table class="table table-bordered datatable" id="table-campaigns">
 			<thead>
 				<tr class="replace-inputs">
@@ -40,7 +37,7 @@
 					<th>Unbounce ID</th>
 					<th>Start Date</th>
 					<th>End Date</th>
-					<th>Status</th>
+					
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -49,12 +46,12 @@
 			@foreach($campaigns as $campaign)
 				<tr class="">
 					<td>{{ $campaign['name'] }}</td>
-					<td>{{ $campaign['client_name'] }}</td>
+					<td>{{ $campaign['user']['username'] }}</td>
 					<td>{{ $campaign['gsm_number'] }}</td>
 					<td>{{ $campaign['unbounce_id'] }}</td>
 					<td>{{ $campaign['start_date'] }}</td>
 					<td>{{ $campaign['end_date'] }}</td>
-					<td>{{ $campaign['status'] }}</td>
+					
 					<td class="center">
 						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
@@ -79,7 +76,7 @@
 					<th>Unbounce ID</th>
 					<th>Start Date</th>
 					<th>End Date</th>
-					<th>Status</th>
+					
 					<th>Actions</th>
 				</tr>
 			</tfoot>

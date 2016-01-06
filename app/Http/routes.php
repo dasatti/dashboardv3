@@ -41,10 +41,7 @@ Route::group(['middleware' => 'web'], function () {
 	}else{
 		return view('auth/login');	
 	}
-    });
-	
-	
-  
+    });  
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
 	Route::get('/gsm','GsmController@index');
@@ -53,7 +50,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/gsm/edit/{id}','GsmController@edit');
 	Route::put('/gsm/update/{id}','GsmController@update');
 	Route::delete('/gsm/delete/{id}','GsmController@destroy');
-	Route::get('/clients','ClientsController@index');
+	Route::get('/clients','ClientsController@index');// show all clients informations only to admin login users
 	Route::get('/clients/add','ClientsController@create');
 	Route::get('/campaigns','CampaignsController@index');
 	Route::get('/campaigns/add','CampaignsController@create');
@@ -63,6 +60,4 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
 	Route::get('/roi','RoiController@index');// For clients
-	
-
 });

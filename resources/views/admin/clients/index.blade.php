@@ -44,13 +44,13 @@
 			</thead>
 			<tbody>
 
-			@foreach($clients as $client)
+			@foreach($users as $user)
 				<tr class="">
-					<td>{{ $client['name'] }}</td>
-					<td>{{ $client['phone_number'] }}</td>
-					<td>{{ $client['email'] }}</td>
-					<td>{{ $client['username'] }}</td>
-					<td>{{ $client['type'] }}</td>
+					<td>{{ $user['name'] }}</td>
+					<td>@if($user['phone_number'] != ''){{ $user['phone_number'] }} @else {{'---'}} @endif</td>
+					<td>{{ $user['email'] }}</td>
+					<td>{{ $user['username'] }}</td>
+					<td>{{ $user['account_type'] }}</td>
 					<td class="center">
 						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
