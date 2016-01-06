@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
 			$table->string('phone_number');
 			$table->text('address');
 			$table->enum('account_type', ['admin', 'client'])->default('client');
-			$table->enum('email_status', ['verified', 'not_verified'])->default('not_verified');
+			$table->enum('email_status', ['1', '0'])->default('0');	
             $table->rememberToken();
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ class CreateCampaignsTable extends Migration
 			$table->foreign('clients_id')->references('id')->on('users');
             $table->string('name');
             $table->integer('gsm_number');
-            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers');
+            $table->foreign('gsm_number')->references('gsm_number')->on('gsm_numbers')->onDelete('cascade');
 			$table->string('unbounce_id')->unique();
             $table->string('ga_view_id');
             $table->dateTime('stat_date');
