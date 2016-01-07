@@ -52,15 +52,17 @@
 					<td>{{ $user['username'] }}</td>
 					<td>{{ $user['account_type'] }}</td>
 					<td class="center">
-						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
+                    {!! Form::open([
+				            'method' => 'DELETE',
+				            'action' => ['ClientsController@destroy', $user['id']]
+				        ]) !!}
+						<a href="{{url('clients/edit',$user->id)}}" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
 							Edit
 						</a>
 						
-						<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-							<i class="entypo-cancel"></i>
-							Delete
-						</a>
+						 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+				        {!! Form::close() !!}
 					</td>
 				</tr>
 

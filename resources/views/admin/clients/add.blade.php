@@ -1,42 +1,31 @@
 @extends('layout.app')
-
-
 @section('content')
-
-
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
-
-
-		<h2>Add Client</h2>
-		<br />
-		
-		
+@include('components.errors')
+		<div class="col-md-12">
+        <h2>Add Client</h2>
+        </div>
 		<div class="row">
+        
 			<div class="col-md-12">
-				
 				<div class="panel panel-primary" data-collapsed="0">
-				
 					<div class="panel-heading">
 						<div class="panel-title">
 							Add new client
 						</div>
-						
 						<div class="panel-options">
-							
 							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
 						</div>
 					</div>
-					
 					<div class="panel-body">
-
 						{!! Form::open(
-							array('url'=>'clients/add', 'class'=>'form-horizontal','role'=>'form'))
+							array('url'=>'clients/store', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
 						<div class="col-md-8">
 							<div class="form-group">
-								{{ Form::label('full_name', 'Full name *',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('full_name', 'Name *',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
-									{{ Form::text('full_name', null,['placeholder'=>'Full name','class'=>'form-control']) }}
+									{{ Form::text('name', null,['placeholder'=>'Name','class'=>'form-control']) }}
 								</div>
 							</div>
 							<div class="form-group">
@@ -128,14 +117,9 @@
 								</div>
 				        </div>
 						{!! Form::close() !!}
-						
 					</div>
-				
 				</div>
-			
 			</div>
-
-			
 		</div>
 		
 @stop

@@ -72,5 +72,23 @@ class AuthController extends Controller
         ]);
     }
 	
-	
+	    /**
+     * Create a new user by admin instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    /*protected function createbyadmin(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+			'username' => $data['username'],
+			'address' => $data['address'],
+			'phone_number' => $data['phone_number'],
+			'company' => $data['company'],
+			'account_type' => $data['account_type'],
+			'password' => bcrypt($data['password']),
+        ]);
+    }*/
 }

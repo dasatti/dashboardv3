@@ -6,11 +6,10 @@
 
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
 
-
-		<h2>Add Campaign</h2>
-		<br />
-		
-		
+		<div class="col-md-12">
+			<h2>Add Campaign</h2>
+		</div>
+        
 		<div class="row">
 			<div class="col-md-12">
 				
@@ -28,7 +27,6 @@
 					</div>
 					
 					<div class="panel-body">
-
 						{!! Form::open(
 							array('url'=>'campaigns/add', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
