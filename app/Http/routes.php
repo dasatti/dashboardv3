@@ -28,6 +28,7 @@ Route::group(['middleware' => 'web'], function () {
     });  
     Route::get('/home', 'HomeController@index');
 	Route::get('/dashboard','DashboardController@index');
+	Route::get('/dashboard/leads/{from}/{to}','DashboardController@leads');
 	/**
 	* @Gsm modules routes
 	*
@@ -63,7 +64,11 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/api','ApiController@index');
 	Route::get('/api/add','ApiController@create');
 	Route::get('/calls','CallsController@index');
+	Route::get('/calls/{from}/{to}','CallsController@calls');
 	Route::get('/emails','EmailsController@index');
 	Route::get('/sms','SmsController@index');
 	Route::get('/roi','RoiController@index');// For clients
+	
+	Route::get('/service/leads','ServicesController@leads');
+
 });

@@ -15,6 +15,7 @@
 	{{ Html::style('public/assets/css/font-icons/font-awesome/css/font-awesome.css') }}
 
 	{{ Html::script('public/assets/js/jquery-1.11.3.min.js') }}
+	{{ Html::script('public/assets/js/lmdashboard/common.dashboard.js') }}
 
 
 

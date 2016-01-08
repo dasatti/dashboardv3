@@ -8,7 +8,6 @@
 
 
 @section('scripts-top')
-
 <script type="text/javascript">
   jQuery( document ).ready( function(  ) {
 
@@ -34,11 +33,36 @@
         lineColors: ['#00a65a','#00c0ef' , '#f56954']
       });
 
+      $('.daterange').on('apply.daterangepicker', function(ev, picker) {
+        var start_date = picker.startDate.format('YYYY-MM-DD');
+        var end_date = picker.endDate.format('YYYY-MM-DD');
+        getCallsTotal(start_date,end_date);
+      });
+
+
 
 
   } );
 
-      
+  function getCallsTotal(start_date,end_date){
+    var config = getConfig().config;
+    $.ajax( {
+        url: config.base_url+"dashboard/leads/"+start_date+"/"+end_date,
+        type: "GET",
+        cache:"false",
+        //data:{from:start_date,to:end_date},
+        dataType: 'json',
+        success: function(data){
+          // console.log(data.calls);
+               // $("#total_leads").text(data.total_leads);
+               $("#total_calls").text(data.calls.total_calls);
+               // $("#total_emails").text(data.total_emails);
+               // $("#total_lifetime_leads").text(data.total_leads_lifetime);
+               $("#total_lifetime_calls").text(data.calls.total_calls_lifetime);
+               // $("#total_lifetime_emails").text(data.total_emails_lifetime);
+        }
+      });
+  }    
 
 
 </script>
@@ -46,8 +70,14 @@
 
 @section('content')
 
-@include('components.breadcrumb',$breadcrumb)
-
+<div class="row">
+<div class="col-sm-8">
+  @include('components.breadcrumb',$breadcrumb)
+</div>
+<div class="col-sm-4">
+  @include('components.daterangepicker')
+</div>
+</div>
 
 <div class="row">
       <div class="col-sm-4"> <a href="javascript:void(0)">
@@ -63,7 +93,7 @@
           <div class="icon"><i class="entypo-phone"></i></div>
           <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="600" id="total_calls">858</div>
           <h3>Calls</h3>
-          <p>Lifetime Calls: <span id="total_lifetime_calls">1064</span></p>
+          <p>Lifetime Calls: <span id="total_lifetime_calls">{{ $leads['calls']['total_calls_lifetime'] }}</span></p>
         </div>
         </a> </div>
       <div class="col-sm-4"> <a href="admin.php?act=manageemails">
