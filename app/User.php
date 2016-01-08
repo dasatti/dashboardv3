@@ -23,11 +23,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 	
-	/**
-	 * @
-	 *
-	 */
-	public function campaigns(){		
-		return $this->hasMany('App\Campaigns');
-	}
+    /**
+     * @
+     *
+     */
+    public function campaigns(){		
+            return $this->hasMany('App\Campaigns');
+    }
 }
