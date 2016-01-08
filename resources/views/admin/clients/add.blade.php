@@ -19,7 +19,7 @@
 					</div>
 					<div class="panel-body">
 						{!! Form::open(
-							array('url'=>'clients/store', 'class'=>'form-horizontal','role'=>'form'))
+							array('url'=>'clients/store', 'class'=>'form-horizontal','role'=>'form','files' => true))
 						 !!}
 						<div class="col-md-8">
 							<div class="form-group">
@@ -90,6 +90,7 @@
 						</div>
 						<div class="col-md-4 ">
 				            <div class="form-group">
+                             
 								<label>Thumbnail: </label>
 
 									<div class="fileinput fileinput-new" data-provides="fileinput"><input type="hidden">

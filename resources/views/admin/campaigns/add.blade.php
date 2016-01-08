@@ -1,47 +1,37 @@
 @extends('layout.app')
-
-
 @section('content')
-
-
 @include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
-
+@include('components.errors')
 		<div class="col-md-12">
 			<h2>Add Campaign</h2>
 		</div>
-        
 		<div class="row">
-			<div class="col-md-12">
-				
-				<div class="panel panel-primary" data-collapsed="0">
-				
+			<div class="col-md-12">				
+				<div class="panel panel-primary" data-collapsed="0">				
 					<div class="panel-heading">
 						<div class="panel-title">
 							Add new campaign
-						</div>
-						
-						<div class="panel-options">
-							
+						</div>						
+						<div class="panel-options">							
 							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
 						</div>
-					</div>
-					
+					</div>					
 					<div class="panel-body">
 						{!! Form::open(
-							array('url'=>'campaigns/add', 'class'=>'form-horizontal','role'=>'form'))
+							array('url'=>'campaigns/store', 'class'=>'form-horizontal','role'=>'form'))
 						 !!}
 						<div class="col-md-12">
 							<div class="form-group">
-								{{ Form::label('campaign_name', 'Campaign Name * :',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('name', 'Campaign Name * :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
-									{{ Form::text('campaign_name', null,['placeholder'=>'','class'=>'form-control']) }}
+									{{ Form::text('name', null,['placeholder'=>'','class'=>'form-control']) }}
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('client_id', 'Client * :',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('clients_id', 'Client * :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									{{
-										Form::select('client_id', array('1' => 'Client 1', '2' => 'Client 2'),null,['class'=>'form-control'])
+										Form::select('clients_id', $users,null,['class'=>'form-control'])
 									}}
 								</div>
 							</div>
@@ -49,7 +39,7 @@
 								{{ Form::label('gsm_number', 'GSM Number :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									{{
-										Form::select('gsm_number', array('11111111' => '11111111', '22222222' => '2222222'),null,['class'=>'form-control'])
+										Form::select('gsm_number',$gsmNumber,null,['class'=>'form-control'])
 									}}
 								</div>
 							</div>
@@ -69,8 +59,8 @@
 								{{ Form::label('start_date', 'Campaign Start Date :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
-										{{ Form::text('start_date', null,['placeholder'=>'','class'=>'form-control datepicker','data-format'=>'D, dd MM yyyy']) }}
-										
+										{{ Form::text('start_date', null,['placeholder'=>'','class'=>'form-control datepicker','data-format'=>'yyyy-mm-dd hh:mm:ss']) }}
+										<!--D, dd MM yyyy-->
 										<div class="input-group-addon">
 											<a href="#"><i class="entypo-calendar"></i></a>
 										</div>
@@ -81,7 +71,7 @@
 								{{ Form::label('end_date', 'Campaign End Date :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
-										{{ Form::text('end_date', null,['placeholder'=>'','class'=>'form-control datepicker','data-format'=>'D, dd MM yyyy']) }}
+										{{ Form::text('end_date', null,['placeholder'=>'','class'=>'form-control datepicker','data-format'=>'yyyy-mm-dd hh:mm:ss']) }}
 										
 										<div class="input-group-addon">
 											<a href="#"><i class="entypo-calendar"></i></a>
@@ -90,29 +80,29 @@
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('login', 'Campaign Login * :',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('campaigns_login', 'Campaign Login * :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="entypo-user"></i></span>
-										{{ Form::text('login', null,['placeholder'=>'','class'=>'form-control']) }}
+										{{ Form::text('campaigns_login', null,['placeholder'=>'','class'=>'form-control']) }}
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('password', 'Password * :',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('campaigns_password', 'Password * :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-key"></i></span>
-										{{ Form::text('password', null,['placeholder'=>'','class'=>'form-control']) }}
+										{{ Form::text('campaigns_password', null,['placeholder'=>'','class'=>'form-control']) }}
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('no_reply_email', 'No Reply Email :',['class'=>'col-sm-3 control-label']) }}
+								{{ Form::label('noreply_email', 'No Reply Email :',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="entypo-mail"></i></span>
-										{{ Form::text('no_reply_email', null,['placeholder'=>'','class'=>'form-control']) }}
+										{{ Form::text('noreply_email', null,['placeholder'=>'','class'=>'form-control']) }}
 									</div>
 								</div>
 							</div>
@@ -138,23 +128,14 @@
 								</div>
 							</div>
 						</div>
-						{!! Form::close() !!}
-						
-					</div>
-				
-				</div>
-			
-			</div>
-
-			
-		</div>
-		
+						{!! Form::close() !!}						
+					</div>				
+				</div>			
+			</div>			
+		</div>		
 @stop
-
 <!--  Bottom css/scripts include section  -->
 @section('includes-bottom')
-
-
 	{{ Html::script('public/assets/js/bootstrap-datepicker.js') }}
 	{{ Html::script('public/assets/js/bootstrap-timepicker.min.js') }}
 @stop

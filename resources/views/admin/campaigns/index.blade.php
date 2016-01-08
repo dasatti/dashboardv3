@@ -53,15 +53,17 @@
 					<td>{{ $campaign['end_date'] }}</td>
 					
 					<td class="center">
-						<a href="#" class="btn btn-default btn-sm btn-icon icon-left">
+						 {!! Form::open([
+				            'method' => 'DELETE',
+				            'action' => ['CampaignsController@destroy', $campaign['id']]
+				        ]) !!}
+						<a href="{{url('campaigns/edit',$campaign->id)}}" class="btn btn-default btn-sm btn-icon icon-left">
 							<i class="entypo-pencil"></i>
 							Edit
 						</a>
 						
-						<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-							<i class="entypo-cancel"></i>
-							Delete
-						</a>
+						 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                         {!! Form::close() !!}
 					</td>
 				</tr>
 

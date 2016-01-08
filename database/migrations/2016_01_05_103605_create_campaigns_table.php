@@ -26,9 +26,10 @@ class CreateCampaignsTable extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('campaigns_login')->unique();
-            $table->string('compaigns_password');
+            $table->string('campaigns_password');
             $table->string('notify_email');
             $table->string('noreply_email');
+			$table->string('notify_phone');
             $table->timestamps();
 
         });

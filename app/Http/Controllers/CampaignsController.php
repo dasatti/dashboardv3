@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Campaigns as Campaigns;
+use App\GsmNumber as GsmNumber;
+use App\User as Users;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -52,13 +54,21 @@ class CampaignsController extends Controller
      */
     public function add()
     {
-        $breadcrumb = array(
+        
+		$breadcrumb = array(
             array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
             array('label'=>'Manage Campaigns','url'=>'/campaigns','class'=>''),
             array('label'=>'Add','url'=>'/campaigns/add','class'=>'')
         );
-        return view('admin.campaigns.add')->with('breadcrumb',$breadcrumb);
-    }
+		if(Auth::user()->account_type =='admin'){
+        	$users = Users::select()->where('account_type', 'client')->pluck('username','id')->toArray();
+			$gsmNumber = GsmNumber::all()->pluck('gsm_number','gsm_number')->toArray();
+			return view('admin.campaigns.add')->with('users',$users)->with('gsmNumber',$gsmNumber)->with('breadcrumb',$breadcrumb);
+		
+		}else{
+			return view('errors.404')->with('breadcrumb',$breadcrumb);
+		}
+	}
 	 /**
      * Show the form for editing the specified resource.
      *
@@ -72,8 +82,11 @@ class CampaignsController extends Controller
             array('label'=>'Manage Campaigns','url'=>'/campaigns','class'=>''),
             array('label'=>'Edit','url'=>'/campaigns/edit/'.$id,'class'=>'')
         );
+			$users = Users::select()->where('account_type', 'client')->pluck('username','id')->toArray();
+			$gsmNumber = GsmNumber::all()->pluck('gsm_number','gsm_number')->toArray();
         $campaigns = Campaigns::findOrFail($id);
-        return view('admin.campaigns.edit')->with('campaigns',$campaigns)->with('breadcrumb',$breadcrumb);
+		//print_r($campaigns);
+        return view('admin.campaigns.edit')->with('users',$users)->with('gsmNumber',$gsmNumber)->with('campaign',$campaigns)->with('breadcrumb',$breadcrumb);
     }
 	/**
      * Store a newly created resource in storage.
@@ -84,16 +97,20 @@ class CampaignsController extends Controller
 	public function store(Request $request)
     {
         $this->validate($request, [
-			'name' => 'required|max:255|min:3|unique:users',
-			'username' => 'required|max:255|min:3|unique:users',
-			'password' => 'required|min:6',
-			'email' => 'required|email|max:255|unique:users',
-			'company' => 'required|max:255|min:3',
-			'phone_number' => 'required|numeric|min:12',
+			'name' => 'required|max:255|min:3',
+			'unbounce_id' => 'required|min:3|unique:campaigns',			
+			'start_date' => 'required|date|date_format:Y-m-d',
+			'end_date' => 'required|date|date_format:Y-m-d|after:start_date',
+			'campaigns_login' => 'required|max:255|min:3|unique:campaigns',
+			'campaigns_password' => 'required|min:6',
+			'notify_email' => 'email|max:255',
+			'noreply_email' => 'email|max:255',
+			'notify_phone' => 'required|numeric|min:12',
         ]);
+		
         $input = $request->all();
-        Users::create($input);
-        return redirect('clients');
+        Campaigns::create($input);
+        return redirect('campaigns');
     }
 	
 	/**
@@ -106,18 +123,19 @@ class CampaignsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-          	'name' => 'required|max:255|min:3|unique:users,name,'.$request->id,
-			'username' => 'required|max:255|min:3|unique:users,username,'.$request->id,
-			'password' => 'required|min:6',
-			'email' => 'required|email|max:255|unique:users,email,'.$request->id,
-			'company' => 'required|max:255|min:3',
-			'phone_number' => 'required|numeric|min:12',
-        ]);
-		
-		$user = Users::findOrFail($id);
-        $user->update($request->all());
-		
-        return redirect('clients');
+			'name' => 'required|max:255|min:3',
+			'unbounce_id' => 'required|min:3|unique:campaigns,unbounce_id,'.$request->id,		
+			'start_date' => 'required|date|date_format:Y-m-d 00:00:00',
+			'end_date' => 'required|date|date_format:Y-m-d 00:00:00|after:start_date',
+			'campaigns_login' => 'required|max:255|min:3|unique:campaigns,campaigns_login,'.$request->id,
+			'campaigns_password' => 'required|min:6',
+			'notify_email' => 'email|max:255',
+			'noreply_email' => 'email|max:255',
+			'notify_phone' => 'required|numeric|min:12',
+        ]);		
+		$campaign = Campaigns::findOrFail($id);
+        $campaign->update($request->all());
+        return redirect('campaigns');
     }
 	/**
      * Remove the specified resource from storage.
@@ -127,10 +145,10 @@ class CampaignsController extends Controller
      */
     public function destroy($id)
     {
-        $user = Users::findOrFail($id);
-        $user->delete();
-		//Session::flash('flash_message', 'User successfully deleted!');
-        return redirect('clients');
+        $campaigns = Campaigns::findOrFail($id);
+        $campaigns->delete();
+		//Session::flash('flash_message', 'Campaign successfully deleted!');
+        return redirect('campaigns');
     }
 
 }
