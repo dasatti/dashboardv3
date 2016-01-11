@@ -71,6 +71,7 @@ class ClientsController extends Controller
      */
 	public function store(Request $request)
     {
+		
         $this->validate($request, [
 			'name' => 'required|max:255|min:3|unique:users',
 			'username' => 'required|max:255|min:3|unique:users',
@@ -78,9 +79,23 @@ class ClientsController extends Controller
 			'email' => 'required|email|max:255|unique:users',
 			'company' => 'required|max:255|min:3',
 			'phone_number' => 'required|numeric|min:12',
+		
         ]);
+		if($request->file('thumbnail')){
+			$request['thumbnail'] = time().'_'.$request->name;
+		}
+		$request['tmp_password'] = $request->password;
+		$request['password'] = bcrypt($request->password);
         $input = $request->all();
-        Users::create($input);
+        $id = Users::create($input)->id;
+		if($request->file('thumbnail')){
+			$imageName = $request['thumbnail']. '.' . 
+			$request->file('thumbnail')->getClientOriginalExtension();
+			
+			$request->file('thumbnail')->move(
+			base_path() . '/public/profilepics/', $imageName
+			);
+		}
         return redirect('clients');
     }
 	
@@ -94,17 +109,17 @@ class ClientsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-          	'name' => 'required|max:255|min:3|unique:users,name,'.$request->id,
+          	'name' => 'required|max:255|min:3,name,'.$request->id,
 			'username' => 'required|max:255|min:3|unique:users,username,'.$request->id,
 			'password' => 'required|min:6',
 			'email' => 'required|email|max:255|unique:users,email,'.$request->id,
 			'company' => 'required|max:255|min:3',
 			'phone_number' => 'required|numeric|min:12',
         ]);
-		
+		$request['tmp_password'] = $request->password;
+		$request['password'] = bcrypt($request->password);
 		$user = Users::findOrFail($id);
         $user->update($request->all());
-		
         return redirect('clients');
     }
 	/**

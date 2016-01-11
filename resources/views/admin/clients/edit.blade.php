@@ -40,8 +40,8 @@
 								{{ Form::label('password', 'Password *',['class'=>'col-sm-3 control-label']) }}
 								<div class="col-sm-5">
 									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-key"></i></span>
-										{{ Form::text('password', null,['placeholder'=>'Password','class'=>'form-control']) }}
+										<span class="input-group-addon"><i class="fa fa-key"></i></span> 
+										{{ Form::text('password', $user['tmp_password'] ,['placeholder'=>'Password','class'=>'form-control']) }}
 									</div>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-5">
 
-									{{ Form::submit('Add',null,['class'=>'btn btn-default']) }}
+									{{ Form::submit('Edit',null,['class'=>'btn btn-default']) }}
 								</div>
 							</div>
 						</div>
