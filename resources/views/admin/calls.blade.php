@@ -1,19 +1,19 @@
 @extends('layout.app')
 
 
-<!--  Top css/scripts include section  -->
 @section('includes-top')
+@parent
 	{{ Html::script('public/assets/js/lmdashboard/common.datatables.js') }}
   	{{ Html::script('public/assets/js/raphael-min.js') }}
   	{{ Html::script('public/assets/js/morris.min.js') }}
 @stop
 
 
-<!--  This section will contain javascript which will go to head  -->
 @section('scripts-top')
+@parent
 
 <script type="text/javascript">
-	jQuery( document ).ready( function( $ ) {
+	jQuery( document ).ready( function( ) {
 
 		init_datatable("table-calls");
 
@@ -35,54 +35,108 @@
             parseTime: false,
             lineColors: ['#242d3c']
 	      });
+              
+              $('.daterange').on('apply.daterangepicker', function(ev, picker) {
+                var start_date = picker.startDate.format('YYYY-MM-DD');
+                var end_date = picker.endDate.format('YYYY-MM-DD');
+                //alert(start_date);
+                getCalls(start_date,end_date);
+              });
 
 	} );
+        
+        
+        function getCalls(start_date,end_date){
+            var config = getConfig().config;
+            $.ajax( {
+                url: config.base_url+"calls/"+start_date+"/"+end_date,
+                type: "GET",
+                cache:"false",
+                //data:{from:start_date,to:end_date},
+                dataType: 'json',
+                success: function(data){
+//                   console.log(data);
+                    $('#dt_status').html('');
+                    var sno=0;
+                    $.each(data, function(index,element){
+                        sno++;
+                        var ch = (element.test_data==1)?'checked':''
+                        var mark = "<input type='checkbox' name='hide' value='"+element.id+"' title='Mark as test data' onClick='return toggleHide(this,"+element.id+");' "+ch+">";
+                        var status = (element.status=='BUSY')?'SUCCESS':element.status;
+                        $('#table-calls').dataTable().fnAddData([
+                            sno,
+                            element.callerid,
+                            element.gsm_number,
+                            element.call_start,
+                            element.call_start,
+                            status,
+                            '<span class="badge badge-success">#new call#</span>',
+                            mark
+                        ]);
+                    });
+                },
+                beforeSend: function(jqXHR,settings){
+                    $('#table-calls').dataTable().fnClearTable();
+                    $('#dt_status').show();
+                }
+              });
+          }
+        
+        
 </script>
 
 @stop
 
 
-<!-- Html content section -->
 @section('content')
+<!-- Html content section -->
 
-@include('components.breadcrumb',array('breadcrumb'=>$breadcrumb))
+<div class="row">
+<div class="col-sm-8">
+  @include('components.breadcrumb',$breadcrumb)
+</div>
+<div class="col-sm-4">
+  @include('components.daterangepicker')
+</div>
+</div>
 
 <h2>Manage Calls</h2>
 
 
-		
+<div class="row">
+    <div clas="col-sm-12" id=""></div>
+</div>
 
 		<table class="table table-bordered datatable" id="table-calls">
 			<thead>
 				<tr class="replace-inputs">
 					<th>Sr. No</th>
-					<th>Phone Number</th>
-					<th>Client Number</th>
-					<th>Date</th>
-					<th>Time</th>
+					<th>Caller ID</th>
+					<th>Gsm Number</th>
+					<th>Call Start</th>
+					<th>Call End</th>
 					<th>Success</th>
 					<th>New Call</th>
 					<th>Mark as test</th>
 				</tr>
 			</thead>
 			<tbody>
-
+                        {{  $i=0?'':'' }}
 			@foreach($calls as $call)
 				<tr class="">
-					<td>{{ $call['s_no'] }}</td>
-					<td>{{ $call['phone_number'] }}</td>
-					<td>{{ $call['client_number'] }}</td>
-					<td>{{ $call['date'] }}</td>
-					<td>{{ $call['time'] }}</td>
-					<td>{{ $call['success'] }}</td>
+					<td>{{ ++$i }}</td>
+					<td>{{ $call->callerid }}</td>
+					<td>{{ $call->gsm_number }}</td>
+					<td>{{ $call->call_start }}</td>
+					<td>{{ $call->call_end }}</td>
+					<td>{{ $call->status }}</td>
 					<td align="center">
-					@if($call['new_call']=='1')
-						<span class="badge badge-success">New</span>
-					@endif
+					<!-- if($call['new_call']=='1') -->
+						<span class="badge badge-success">New/Not New</span>
+					<!-- endif -->
 					</td>
 					<td align="center">{{ Form::checkbox('mark_as_test') }}</td>
 				</tr>
-
 			@endforeach
 				
 			</tbody>
@@ -152,8 +206,9 @@
 @stop
 
 
-<!--  Bottom css/scripts include section  -->
 @section('includes-bottom')
+@parent
+        <!--  Bottom css/scripts include section  -->
 
 	{{ Html::style('public/assets/js/datatables/datatables.css') }}
 	{{ Html::style('public/assets/js/select2/select2-bootstrap.css') }}

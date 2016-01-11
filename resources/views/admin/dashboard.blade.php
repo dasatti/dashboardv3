@@ -91,7 +91,7 @@
       <div class="col-sm-4"> <a href="admin.php?act=managecalls">
         <div class="tile-stats tile-green">
           <div class="icon"><i class="entypo-phone"></i></div>
-          <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="600" id="total_calls">858</div>
+          <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="600" id="total_calls">0</div>
           <h3>Calls</h3>
           <p>Lifetime Calls: <span id="total_lifetime_calls">{{ $leads['calls']['total_calls_lifetime'] }}</span></p>
         </div>
