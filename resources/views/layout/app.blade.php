@@ -16,13 +16,11 @@
 
 
 
-
 </head>
 <body class="page-body  page-fade" data-url="http://neon.dev">
 
-    
 @yield('scripts-top')
-        
+
 <div class="page-container">
 	
 	<div class="sidebar-menu">

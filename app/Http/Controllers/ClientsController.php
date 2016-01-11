@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\User as Users;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-///use App\Http\Controllers\Session;
 use Illuminate\Support\Facades\Auth;
+
+
 
 class ClientsController extends Controller
 { 
@@ -71,8 +72,14 @@ class ClientsController extends Controller
      */
 	public function store(Request $request)
     {
-		
-        $this->validate($request, [
+        /*echo  $thumbnail = rand().'_'.$request->name. '.' . 
+            $request->file('thumbnail')->getClientOriginalExtension();
+            $request->file('thumbnail')->move(
+            base_path() . '/public/profilepics/', $thumbnail
+            );
+        
+		die;*/
+       /* $this->validate($request, [
 			'name' => 'required|max:255|min:3|unique:users',
 			'username' => 'required|max:255|min:3|unique:users',
 			'password' => 'required|min:6',
@@ -80,20 +87,19 @@ class ClientsController extends Controller
 			'company' => 'required|max:255|min:3',
 			'phone_number' => 'required|numeric|min:12',
 		
-        ]);
+        ]);*/
 		if($request->file('thumbnail')){
-			$request['thumbnail'] = time().'_'.$request->name;
+			$thumbnail = rand().'_'.$request->name. '.' . 
+            $request->file('thumbnail')->getClientOriginalExtension();
+            $request['thumbnail'] = $thumbnail;
 		}
 		$request['tmp_password'] = $request->password;
 		$request['password'] = bcrypt($request->password);
         $input = $request->all();
         $id = Users::create($input)->id;
 		if($request->file('thumbnail')){
-			$imageName = $request['thumbnail']. '.' . 
-			$request->file('thumbnail')->getClientOriginalExtension();
-			
 			$request->file('thumbnail')->move(
-			base_path() . '/public/profilepics/', $imageName
+			base_path() . '/public/profilepics/', $thumbnail
 			);
 		}
         return redirect('clients');

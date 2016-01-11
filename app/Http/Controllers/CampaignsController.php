@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Campaigns as Campaigns;
+use App\Campaign as Campaigns;
 use App\GsmNumber as GsmNumber;
 use App\User as Users;
 use App\Http\Requests;
@@ -35,7 +35,11 @@ class CampaignsController extends Controller
 						array('label'=>'Dashboard','url'=>'/','class'=>'entypo-home'),
 						array('label'=>'Manage Campaigns','url'=>'/campaigns','class'=>'')
 					);
-					return view('admin.campaigns.index')->with('campaigns',$campaigns)->with('breadcrumb',$breadcrumb);
+					$data = array(
+						'campaigns' => $campaigns,
+						'breadcrumb' => $breadcrumb
+					);
+					return view('admin.campaigns.index', $data);
 			
 			}else if(Auth::user()->account_type =='client'){
         		

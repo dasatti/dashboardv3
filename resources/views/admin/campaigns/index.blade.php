@@ -3,7 +3,11 @@
 
 <!--  Top css/scripts include section  -->
 @section('includes-top')
-	{{ Html::script('public/assets/js/lmdashboard/common.datatables.js') }}
+	{{ Html::style('public/assets/js/datatables/datatables.css') }}
+	{{ Html::style('public/assets/js/select2/select2-bootstrap.css') }}
+	{{ Html::style('public/assets/js/select2/select2.css') }}
+	{{ Html::style('public/assets/js/datatables/Buttons-1.0.3/css/buttons.dataTables.min.css') }}
+	
 @stop
 
 
@@ -93,11 +97,8 @@
 <!--  Bottom css/scripts include section  -->
 @section('includes-bottom')
 
-	{{ Html::style('public/assets/js/datatables/datatables.css') }}
-	{{ Html::style('public/assets/js/select2/select2-bootstrap.css') }}
-	{{ Html::style('public/assets/js/select2/select2.css') }}
-	{{ Html::style('public/assets/js/datatables/Buttons-1.0.3/css/buttons.dataTables.min.css') }}
 
+{{ Html::script('public/assets/js/lmdashboard/common.datatables.js') }}
 
 	{{ Html::script('public/assets/js/datatables/datatables.js') }}
 	{{ Html::script('public/assets/js/datatables/Buttons-1.0.3/js/dataTables.buttons.min.js') }}
